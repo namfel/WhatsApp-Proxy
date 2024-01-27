@@ -30,17 +30,6 @@ then
     echo "[PROXYHOST] No public IP address was supplied as an environment variable."
 fi
 
-## PUBLIC_IP retrieved from AWS EC2 metadata endpoint
-if [[ $PUBLIC_IP == '' ]]
-then
-    # Attempt retrieval of the public ip from the meta-data instance
-    PUBLIC_IP=$(fetch http://169.254.169.254/latest/meta-data/public-ipv4)
-    if [[ $PUBLIC_IP == '' ]]
-    then
-        echo "[PROXYHOST] Failed to retrieve public ip address from AWS URI within 2s"
-    fi
-fi
-
 ## PUBLIC_IP retrieved from third-party sources
 if [[ $PUBLIC_IP == '' ]]
 then
