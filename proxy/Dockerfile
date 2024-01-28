@@ -41,7 +41,7 @@ RUN mkdir --parents /home/haproxy/certs && chown haproxy:haproxy /home/haproxy/c
 RUN haproxy -c -V -f /usr/local/etc/haproxy/haproxy.cfg
 
 # Revert to the haproxy user for runtime operation
-USER haproxy
+# USER haproxy
 
 # Expose the container-supported network ports
 EXPOSE 80/tcp
